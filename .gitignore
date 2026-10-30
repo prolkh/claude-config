@@ -1,0 +1,15 @@
+# 기본은 전부 제외하고 필요한 것만 포함
+/*
+!/.gitignore
+!/CLAUDE.md
+!/settings.json
+!/commands/
+!/hooks/
+!/skills/
+
+# 자동 동기화
+/skills/synced/
+
+# PC별 설정
+settings.local.json
+/hooks/herdr-*

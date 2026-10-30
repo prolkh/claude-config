@@ -1,0 +1,40 @@
+{
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "permissions": {
+    "allow": [
+      "Bash(rmdir *)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(config.ini)",
+      "Read(secrets/**)",
+      "Bash(cat .env)",
+      "Bash(cat .env.*)",
+      "Read(//**/deploy.config.json)",
+      "Edit(//**/deploy.config.json)",
+      "Read(//**/*.config.json)",
+      "Edit(//**/*.config.json)",
+      "Read(//**/ims.*.property)",
+      "Edit(//**/ims.*.property)",
+      "Read(~/.ssh/**)"
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "sed -n 's/.*\"display_name\"[[:space:]]*:[[:space:]]*\"\\([^\"]*\\)\".*/\\1/p' | head -n 1"
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    }
+  },
+  "agentPushNotifEnabled": true,
+  "hooks": {"SessionStart":[{"matcher":"^(startup|resume|clear|compact|fork)$","hooks":[{"type":"command","command":"powershell -NoProfile -ExecutionPolicy Bypass -File \"$USERPROFILE\\.claude\\hooks\\herdr-agent-state.ps1\" session","timeout":10}]}]}
+}
