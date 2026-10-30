@@ -8,14 +8,10 @@
       "Bash(rmdir *)"
     ],
     "deny": [
-      "Read(.env)",
-      "Read(.env.*)",
+      "Read(//**/.env)",
+      "Read(//**/.env.*)",
       "Read(config.ini)",
       "Read(secrets/**)",
-      "Bash(cat .env)",
-      "Bash(cat .env.*)",
-      "Read(//**/deploy.config.json)",
-      "Edit(//**/deploy.config.json)",
       "Read(//**/*.config.json)",
       "Edit(//**/*.config.json)",
       "Read(//**/ims.*.property)",
@@ -36,5 +32,5 @@
     }
   },
   "agentPushNotifEnabled": true,
-  "hooks": {"SessionStart":[{"matcher":"^(startup|resume|clear|compact|fork)$","hooks":[{"type":"command","command":"powershell -NoProfile -ExecutionPolicy Bypass -File \"$USERPROFILE\\.claude\\hooks\\herdr-agent-state.ps1\" session","timeout":10}]}]}
+  "hooks": {"SessionStart":[{"matcher":"^(startup|resume|clear|compact|fork)$","hooks":[{"type":"command","command":"f=\"$USERPROFILE/.claude/hooks/herdr-agent-state.ps1\"; if [ -f \"$f\" ]; then powershell -NoProfile -ExecutionPolicy Bypass -File \"$f\" session; fi","timeout":10}]}]}
 }
