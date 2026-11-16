@@ -24,6 +24,8 @@ description: plan.md 로 진행한 구현이 끝난 뒤의 마무리 절차. pla
 2. **research.md 반영 상태 변경** — 해당 태스크 인덱스의 `반영: 보류` → `반영: 반영됨`
    - 태스크는 plan.md 제목(`## [YYYY-MM-DD] <task>`)으로 찾는다.
    - 다른 태스크의 인덱스는 건드리지 않는다. `폐기` 는 사용자가 직접 기입하는 값이므로 쓰지 않는다.
+   - 같은 태스크의 `docs/research/` 문서에 `### Follow-ups` 가 있는지 확인한다. 없으면 구현 중 발견한 범위 밖 정리·리팩토링 후보를 `파일:줄`, 이유와 함께 추가한다 (없으면 "없음").
+   - 이번 태스크가 이전 research 문서의 Follow-up 항목을 처리한 것이면, 그 항목 끝에 `→ 처리: docs/research/{이번 파일}` 을 덧붙인다.
 
 3. **exec-plan 보관** — `plan.md` 를 `docs/exec-plan/{YYYYMMDD}-{seq}-{task-name}.md` 로 복사
    - seq: `docs/exec-plan/{YYYYMMDD}-*` 중 가장 큰 순번 + 1, 2자리. 해당 날짜 파일이 없으면 `01`.
@@ -122,3 +124,4 @@ BREAKING CHANGE: GET /api/posts 응답의 author 필드가 string 에서
 - 검증 결과 (실행한 것 / 실행하지 못한 것)
 - 커밋 해시·메시지와 커밋한 파일 (커밋하지 않았다면 그 이유와 커밋 메시지 추천)
 - 남은 수동 검증 항목, push 여부
+- research 문서의 Follow-ups (범위 밖 정리·리팩토링 후보). 없으면 "없음"
