@@ -107,6 +107,8 @@ READY_FOR_IMPLEMENT
 ```
 
 - Verification: 자동으로 확인할 수 없는 부분은 수동 항목에 빠짐없이 적는다. 테스트가 없는 영역이면 그 사실을 적는다.
+- 보류: 사용자가 구현을 보류하고 다른 태스크를 진행하면, plan.md 를 `docs/plan-hold/{YYYYMMDD}-{seq}-{task-slug}.md` 로 옮기고(내용 그대로) plan.md 를 비운다. 날짜·seq·slug 는 그 태스크의 research 문서와 같게 한다. research.md 반영 상태는 `보류` 그대로 둔다.
+  - 다시 진행할 때는 그 파일을 plan.md 로 되돌리고 보관 파일은 지운다. 그사이 코드가 바뀌었으면 Files·Decision 이 여전히 맞는지 확인한 뒤 "구현을 진행할까요?" 확인을 다시 받는다.
 
 ---
 
