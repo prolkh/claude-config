@@ -173,7 +173,7 @@ fix(community): 게시글 응답 스키마 변경
 프론트엔드에서 작성자 상세 정보를 함께 노출해야 하는 요구사항 반영.
 
 BREAKING CHANGE: GET /api/posts 응답의 author 필드가 string 에서
-{ id, name } 객체로 변경됨. krt-fo-web, krt-bo-web 컨슈머 수정 필요.
+{ id, name } 객체로 변경됨. fo-web, bo-web 컨슈머 수정 필요.
 ```
 
 ## 마지막 보고
