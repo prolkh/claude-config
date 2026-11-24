@@ -1,0 +1,4 @@
+#!/bin/bash
+# 커밋 직전: 이번 커밋에 들어갈 변경에서 민감정보 검사
+# [WHY] 전역 훅이라 저장소마다 스크립트가 없음 — 훅 파일과 같은 폴더의 스크립트를 씀
+exec "$(dirname "$0")/check-secrets.sh" --staged

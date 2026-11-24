@@ -1,0 +1,15 @@
+#!/bin/bash
+# 푸시 직전: 원격에 아직 없는 커밋 전체에서 민감정보 검사
+# [WHY] pre-commit 을 거치지 않은 커밋(--no-verify, 다른 PC·도구에서 만든 커밋)도 올라가기 전에 막기 위해
+# 전역 훅이라 훅 파일과 같은 폴더의 스크립트를 씀
+CHECK="$(dirname "$0")/check-secrets.sh"
+ZERO=0000000000000000000000000000000000000000
+status=0
+
+# 표준 입력: <로컬 ref> <로컬 sha> <원격 ref> <원격 sha> (푸시하는 ref 마다 한 줄)
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [[ "$local_sha" == "$ZERO" ]] && continue   # 원격 브랜치 삭제
+  "$CHECK" --range "$local_sha" --not --remotes || status=1
+done
+
+exit $status

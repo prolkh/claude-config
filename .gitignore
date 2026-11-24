@@ -6,6 +6,7 @@
 !/settings.json
 !/commands/
 !/hooks/
+!/githooks/
 !/skills/
 
 # 자동 동기화
